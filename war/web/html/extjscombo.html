@@ -1,0 +1,145 @@
+
+<!--
+/*!
+ * Ext JS Library 3.0.0
+ * Copyright(c) 2006-2009 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+-->
+<html>
+<head>
+<title>Hello World Window</title>
+
+ <link rel="stylesheet" type="text/css" href="../css/ext-all.css" />
+      
+    <script type="text/javascript" src="../js/ext-base.js"></script>
+ 	<script type="text/javascript" src="../js/ext-all.js"></script>
+
+</head>
+
+<!-- Revised from demo code in ext3.0.0 -->
+<body>
+<script type="text/javascript">
+/*!
+ * Ext JS Library 3.0.0
+ * Copyright(c) 2006-2009 Ext JS, LLC
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+Ext.onReady(function(){
+
+    // create the Data Store
+    var store = new Ext.data.JsonStore({
+        root: 'users',
+       // totalProperty: 'totalCount',
+        idProperty: 'code',
+        remoteSort: true,
+
+        fields: [
+            'code', 'name', 'location'
+        ],
+
+        // load using script tags for cross domain, if the data in on the same domain as
+        // this page, an HttpProxy would be better
+        proxy: new Ext.data.ScriptTagProxy({
+            url: 'http://www.genieinjar.com/airportp.json'
+        })
+    });
+    store.setDefaultSort('location', 'desc');
+alert(store.getCount());
+
+    // pluggable renders
+    function renderTopic(value, p, record){
+        return String.format(
+                '',
+                value);
+    }
+    function renderLast(value, p, r){
+        return String.format( r.data['location']);
+    }
+
+    var grid = new Ext.grid.GridPanel({
+        width:700,
+        height:500,
+        title:'ExtJS.com - Browse Forums',
+        store: store,
+        trackMouseOver:false,
+        disableSelection:true,
+        loadMask: true,
+
+        // grid columns
+        columns:[{
+            id: 'code', // id assigned so we can apply custom css (e.g. .x-grid-col-topic b { color:#333 })
+            header: "Topic",
+            dataIndex: 'code',
+            width: 420,
+           // renderer: renderTopic,
+            sortable: true
+        },{
+            header: "Author",
+            dataIndex: 'name',
+            width: 100,
+            hidden: true,
+            sortable: true
+        },{
+            header: "Replies",
+            dataIndex: 'location',
+            width: 70,
+            align: 'right',
+            sortable: true
+        },{
+            id: 'code',
+            header: "Last Post",
+            dataIndex: 'code',
+            width: 150,
+          //  renderer: renderLast,
+            sortable: true
+        }],
+
+        // customize view config
+        viewConfig: {
+            forceFit:true,
+            enableRowBody:true,
+            showPreview:true,
+            getRowClass : function(record, rowIndex, p, store){
+                if(this.showPreview){
+                    p.body = '<p>'+record.data.code+'</p>';
+                    return 'x-grid3-row-expanded';
+                }
+                return 'x-grid3-row-collapsed';
+            }
+        },
+
+        // paging bar on the bottom
+        bbar: new Ext.PagingToolbar({
+            pageSize: 25,
+            store: store,
+            displayInfo: true,
+            displayMsg: 'Displaying topics {0} - {1} of {2}',
+            emptyMsg: "No topics to display",
+            items:[
+                '-', {
+                pressed: true,
+                enableToggle:true,
+                text: 'Show Preview',
+                cls: 'x-btn-text-icon details',
+                toggleHandler: function(btn, pressed){
+                    var view = grid.getView();
+                    view.showPreview = pressed;
+                    view.refresh();
+                }
+            }]
+        })
+    });
+
+    // render it
+    grid.render('topic-grid');
+
+    // trigger the data store load
+    store.load({params:{start:0, limit:25}});
+});
+</script>
+<div id="topic-grid"></div>
+</body>
+</html>

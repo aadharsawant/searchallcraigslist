@@ -1,0 +1,6 @@
+{
+    ritas: [
+        {field1: 'field1Value', field2: 'field2Value'}, // record 1
+        {field1: 'field1Value2', field2: 'field2Value2'} // record 2
+    ]
+}

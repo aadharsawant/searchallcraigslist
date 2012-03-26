@@ -1,0 +1,8 @@
+ { users: [ 
+		      { "id": 1, "name":"John Smith", "location":"jsmith@example.com"},
+		      { "id": 2, "name":"Anna Smith", "location":"asmith@example.com"},
+		      { "id": 3, "name":"Peter Smith", "location":"psmith@example.com"},
+		      { "id": 4, "name":"Tom Smith", "location":"tsmith@example.com"},
+		      { "id": 5, "name":"Andy Smith", "location":"asmith@example.com"},
+		      { "id": 6, "name":"Nick Smith", "location":"nsmith@example.com"}
+		    ]}
