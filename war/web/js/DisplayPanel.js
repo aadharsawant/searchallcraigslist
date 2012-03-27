@@ -9,6 +9,7 @@ DisplayPanel = function() {
         resizeTabs:true,
         tabWidth:150,
         minTabWidth: 120,
+        bodyStyle: 'background-image: url("../image/flights.png");',
        // enableTabScroll: true,
         plugins: new Ext.ux.TabCloseMenu()
         

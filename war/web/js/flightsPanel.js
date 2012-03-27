@@ -1,31 +1,12 @@
 
 
-// pluggable renders
-//    function stcCallback1001(data){
-//        alert('hello');
-//    };
 
 
 flightsPanel = function() {
 	
 	
 	
-//	this.tipo_store = new Ext.data.Store({
-//        reader: new Ext.data.JsonReader({
-//            root: 'results',
-//            totalProperty: 'total',
-//            id: 0,
-//            autoLoad: true,
-//            fields: [
-//                {name: 'id', mapping:'id'},
-//                {name: 'name', mapping:'name'}
-//            ]
-//        }),
-//        proxy: new Ext.data.HttpProxy({
-//            url: '/accion/tipo/',
-//            method: 'GET'
-//        })
-//    }); 
+
 	
 	
 	// create the Data Store
@@ -42,7 +23,7 @@ flightsPanel = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: 'http://localhost:8888/guestbook'
+            url: 'http://planlongweekend.appspot.com/guestbook'
         })
     });
     
@@ -60,7 +41,7 @@ flightsPanel = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: 'http://localhost:8888/guestbook'
+            url: 'http://planlongweekend.appspot.com/guestbook'
         })
     });
    // Grid1Store.setDefaultSort('location', 'desc');
@@ -83,128 +64,12 @@ flightsPanel = function() {
 
 	
 	
-//test = new Ext.form.ComboBox({
-//        store: ds,
-//        displayField:'title',
-//        typeAhead: false,
-//        loadingText: 'Searching...',
-//        minChars:2,
-//        minHeight:25,
-//        width: 300,
-//        pageSize:0,
-//        hideTrigger:true,
-//        tpl: resultTpl,
-//        applyTo: 'test',
-//        itemSelector: 'div.search-item',
-//        onSelect: function(record){ // override default onSelect to do redirect
-//            window.location = String.format('');
-//        }
-//    });
-	
-//	Ext.define("Post", {
-//        extend: 'Ext.data.Model',
-//        proxy: {
-//            type: 'jsonp',
-//            url : 'http://www.sencha.com/forum/topics-remote.php',
-//            reader: {
-//                type: 'json',
-//                root: 'topics',
-//                totalProperty: 'totalCount'
-//            }
-//        },
-//
-//        fields: [
-//            {name: 'id', mapping: 'post_id'},
-//            {name: 'title', mapping: 'topic_title'},
-//            {name: 'topicId', mapping: 'topic_id'},
-//            {name: 'author', mapping: 'author'},
-//            {name: 'lastPost', mapping: 'post_time', type: 'date', dateFormat: 'timestamp'},
-//            {name: 'excerpt', mapping: 'post_text'}
-//        ]
-//    });
-//
-//    var ds = Ext.create('Ext.data.Store', {
-//        pageSize: 10,
-//        model: 'Post'
-//    });
 
-
-
-	
-	
-	//alert(Grid1Store.getCount());
-	
-	
-	
-
-
-//		 // private variables
-//		  var Grid1Store = new Ext.data.JsonStore({
-//		    root: 'users',
-//		    fields: [ 'code', 'name', 'location' ],
-//		    autoLoad: true,
-//		    proxy: new Ext.data.HttpProxy({
-//		    	 url:'http://airportcode.riobard.com/search?q=frankfurt&fmt=JSON',
-//                method: 'POST'
-//            })
-//
-//		   
-//		  });
-//		  
-//		  
-//		  
-//		  alert(Grid1Store.getCount());
-
-		  
-		
-		 
-	
-//	var rd_random_employee_data = new Ext.data.JsonReader({}, [ 'code', 'name','location']);
-//	
-//	
-//	    var ds_random_employee_data_active = new Ext.data.Store({  
-//		     proxy: new Ext.data.HttpProxy({  
-//		         // this json data contains only employees where active is 'true'  
-//		         url: 'airports.json'  
-//		     }),  
-//		     reader: rd_random_employee_data,  
-//		     remoteSort: false  
-//		 });  
-//	    
-	    
-//	    
-//	    var count =[ ['0'],
-//	                 ['1'],
-//	                 ['2'],
-//	                 ['3'],
-//	                 ['4'],
-//	                 ['5'],
-//	                 ['6'],
-//	                 ['7'],
-//	                 ['8'],
-//	                 ['9']
-//	                 ];
-
-//	                 var from = new Ext.form.ComboBox({
-//	                     fieldLabel: 'from',
-//	                     hiddenName: 'from',
-//	                     store: new Ext.data.SimpleStore({
-//	                         fields: ['code','name','location'],
-//	                         data : airportArr
-//	                     }),
-//	                 	width:50,
-//	                     displayField: 'name',
-//	                     typeAhead: true,
-//	                     mode: 'local',
-//	                     triggerAction: 'all',
-//	                     emptyText:'mumbai',
-//	                     selectOnFocus:true
-//	                 });
 	    
 		var from = new Ext.form.ComboBox({
 	    fieldLabel: 'From',
 	    hiddenName: 'from',
-	   
+	    id:'fromCombo',
 	    store: Grid2Store,
 	    displayField: 'location',
 	    valueField:'code',
@@ -213,58 +78,22 @@ flightsPanel = function() {
 	    triggerAction: 'all',
 	    emptyText:'Choose From Airport...',
 	    selectOnFocus:true,
-	   
-	        loadingText: 'Searching...',
-	       // emptyText: 'No matching airports found.',
+	    forceSelection:true,
 
-	        // Custom rendering template for each item
+	   minChars:3,
+	        loadingText: 'Searching...',
+	  
 	        itemSelector: 'div.search-item',
 	       tpl:resultTpl,
-	      //  }
-	    //},
 	    pageSize: 10
 	});
 		
 		
-//		var from = new Ext.form.ComboBox({
-//			 fieldLabel: 'From',
-//			    hiddenName: 'from',
-//	        store: Grid1Store,
-//	        displayField:'location',
-//	        typeAhead: false,
-//	        loadingText: 'Searching...',
-//	        width: 400,
-//	        pageSize:10,
-//	        hideTrigger:true,
-//	        tpl: resultTpl,
-//	       // applyTo: 'search',
-//	        itemSelector: 'div.search-item',
-////	        onSelect: function(record){ // override default onSelect to do redirect
-////	            window.location =
-////	                String.format('http://extjs.com/forum/showthread.php?t={0}&p={1}', record.data.topicId, record.id);
-////	        }
-//	    });
-
-
-//var from = new Ext.form.ComboBox({
-//    fieldLabel: 'From',
-//    hiddenName: 'from',
-//     store: new Ext.data.SimpleStore({
-//         fields: ['code','name','location'],
-//         data : 'airports.json'
-//     }),
-//    displayField: 'location',
-//    typeAhead: true,
-//    mode: 'local',
-//    triggerAction: 'all',
-//    emptyText:'Choose from Airport...',
-//    selectOnFocus:true
-//});
-
 
 var to = new Ext.form.ComboBox({
     fieldLabel: 'To',
     hiddenName: 'to',
+    id:'toCombo',
     store: Grid2Store,
     displayField: 'location',
     valueField:'code',
@@ -273,21 +102,18 @@ var to = new Ext.form.ComboBox({
     triggerAction: 'all',
     emptyText:'Choose To Airport...',
     selectOnFocus:true,
+    minChars:3,
    
         loadingText: 'Searching...',
-       // emptyText: 'No matching airports found.',
-
-        // Custom rendering template for each item
         itemSelector: 'div.search-item',
        tpl:resultTpl,
-      //  }
-    //},
     pageSize: 10
 });
 
 var today = new Date(); // get today date
 
 var fromDate = new Ext.form.DateField({
+	id:'fromDate',
     fieldLabel:'From Date',
     format: 'm/d/y',
     value: today // <-- you must put the date object here
@@ -295,6 +121,7 @@ var fromDate = new Ext.form.DateField({
 	
 	
 	var startTimePicker = new Ext.form.TimeField({
+		id:'startTime',
 	fieldLabel:'From Time',
 	width:70,
 name: 'starttime',
@@ -305,6 +132,7 @@ format:"H:i:s"
 
 
 var toDate = new Ext.form.DateField({
+	id:'toDate',
     fieldLabel:'To Date',
     format: 'm/d/y',
     value: today // <-- you must put the date object here
@@ -312,6 +140,7 @@ var toDate = new Ext.form.DateField({
 	
 	
 	var endTimePicker = new Ext.form.TimeField({
+		id:'endTime',
 	fieldLabel:'End Time',
 	width:70,
 name: 'endtime',
@@ -334,6 +163,7 @@ var count =[ ['0'],
 ];
 
 var adult = new Ext.form.ComboBox({
+	id:'adult',
     fieldLabel: 'Adults',
     hiddenName: 'adults',
     store: new Ext.data.SimpleStore({
@@ -350,6 +180,7 @@ var adult = new Ext.form.ComboBox({
 });
 
 var child = new Ext.form.ComboBox({
+	id:'child',
     fieldLabel: 'Children[2-11]',
     hiddenName: 'children',
     store: new Ext.data.SimpleStore({
@@ -367,6 +198,7 @@ var child = new Ext.form.ComboBox({
 
 
 var senior = new Ext.form.ComboBox({
+	id:'senior',
     fieldLabel: 'Seniors [65+]',
     hiddenName: 'seniors',
 	store: new Ext.data.SimpleStore({
@@ -385,6 +217,7 @@ var senior = new Ext.form.ComboBox({
 
 
 var infonseat = new Ext.form.ComboBox({
+	id:'infantseat',
     fieldLabel: 'Infant on Seat',
     hiddenName: 'infonseat',
 	store: new Ext.data.SimpleStore({
@@ -402,6 +235,7 @@ var infonseat = new Ext.form.ComboBox({
 
 
 var infonlap = new Ext.form.ComboBox({
+	id:'infantlap',
     fieldLabel: 'Infant on lap',
     hiddenName: 'infonlap',
 	store: new Ext.data.SimpleStore({
@@ -427,6 +261,7 @@ var coach =[ ['Economy'],
 ];
 
 var coachCombo = new Ext.form.ComboBox({
+	id:'coachCombo',
     fieldLabel: 'Coach',
     hiddenName: 'coach',
     store: new Ext.data.SimpleStore({
@@ -446,26 +281,121 @@ var button2= new Ext.Button(
 				//textAlign:'center',
 				ui: 'blue-round',
                 text:'Submit',
-                 //icon:'key.gif',
-                 //cls:'x-btn-text-icon',
+                 
                  handler:function(){ 
                 	 
-                	 Ext.getCmp('enterPanel').collapse(true);
-				 
-				 
+                	 var cheapoairUrl = (<r><![CDATA[http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc]]></r>).toString();
+
+                	 
+                	 
+                	
+                	 
+                	 
+                	 var fromCombo =  Ext.getCmp('fromCombo').getValue();
+                	 
+                	 if (fromCombo=='')
+                		 {
+                	 
+                	 Ext.MessageBox.alert('Error Message',"Please Enter From Value"); 
+                	 return;
+                		 }
+                	 
+                	 
+                	 
+                	 cheapoairUrl +=  "&fc=" +fromCombo;
+                	//alert( Ext.getCmp('fromCombo').getValue());
+                	
+                	var toCombo =  Ext.getCmp('toCombo').getValue();
+                	if (toCombo=='')
+           		 {
+           	 
+           	 Ext.MessageBox.alert('Error Message',"Please Enter To Value"); 
+           	 return;
+           		 }
+                	cheapoairUrl +=  "&tc=" +toCombo;
+                	//alert( Ext.getCmp('toCombo').getValue());
+                	
+//                	alert (Ext.getCmp('radioGrp').getValue());
+//                	alert (Ext.getCmp('oneWay').getValue());
+                	
+                	//alert (Ext.getCmp('return').getValue());
+                	var fromDate =  Ext.getCmp('fromDate').getValue();
+                	cheapoairUrl +=  "&dd=" +fromDate.format("m/d/y");
+                	//alert(Ext.getCmp('fromDate').getValue().format("m/d/y"))
+                	//alert( );
+                	var toDate =  Ext.getCmp('toDate').getValue();
+                	if(Ext.getCmp('return').getValue())
+                		{
+                		if (fromDate>toDate)
+                			{
+                			 Ext.MessageBox.alert('Error Message',"From Date has to be before To date"); 
+                           	 return;
+                			}
+                	cheapoairUrl +=  "&rd=" +toDate.format("m/d/y");
+                	cheapoairUrl +=  "&tt="+ 2;
+                		}
+                	else {
+                		cheapoairUrl +=  "&tt="+ 1;
+                	}
+                	//alert( Ext.getCmp('toDate').getValue());
+                	var startTime =  Ext.getCmp('startTime').getValue();
+                	//alert( Ext.getCmp('startTime').getValue());
+                	var endTime =  Ext.getCmp('endTime').getValue();
+                	//alert( Ext.getCmp('endTime').getValue());
+                	var adult =  Ext.getCmp('adult').getValue();
+                	if (adult=='')
+                		{
+                		adult = '1';
+                		}
+                	cheapoairUrl +=  "&at=" +adult;
+                	//alert( Ext.getCmp('adult').getValue());
+                	var child =  Ext.getCmp('child').getValue();
+                	if (child == '')
+                		{
+                		child='0';
+                		}
+                	cheapoairUrl +=  "&ct=" +child;
+                	//alert( Ext.getCmp('child').getValue());
+                	var senior =  Ext.getCmp('senior').getValue();
+                	//alert( Ext.getCmp('senior').getValue());
+                	var infantseat =  Ext.getCmp('infantseat').getValue();
+                	//alert( Ext.getCmp('infantseat').getValue());
+                	var infantlap =  Ext.getCmp('infantlap').getValue();
+                	//alert( Ext.getCmp('infantlap').getValue());
+                	var coachCombo =  Ext.getCmp('coachCombo').getValue();
+                	if(coachCombo==''||coachCombo=='Economy')
+                		{
+                		cheapoairUrl +=  "&cb=" +1;
+                		}
+                	else if (coachCombo=='Buisness')
+                		{
+                		cheapoairUrl +=  "&cb=" +2;
+                		}
+                	else if (coachCombo=='First')
+            		{
+            		cheapoairUrl +=  "&cb=" +3;
+            		}
+                	//alert( Ext.getCmp('coachCombo').getValue());
+                	
+                
+
 				 
 				 
 				 var preview2 = new Ext.Panel({
-           id: 'flightnetwork',
-		 title:'Flight Network',
+           id: 'cheapoair',
+		 title:'Cheapoair',
          region: 'center',
          cls:'summary',
         //listeners: entityViewer.previewProvider,
         autoScroll: false,
-		
-		 html:'<iframe width="100%" height="100%" src="http://www.flightnetwork.com/"></iframe>'
+		tabid:0,
+		closable:true,
+		 html:'<iframe width="100%" height="100%" src='+cheapoairUrl+'></iframe>'
 		 });
 		 Ext.getCmp('displayPanel').add(preview2);
+		 Ext.getCmp('displayPanel').setActiveTab(preview2);
+
+		 Ext.getCmp('enterPanel').collapse(true);
 				 },
                  descriptionText:'Submit Flight Details'
                  });
@@ -500,10 +430,11 @@ var button2= new Ext.Button(
 	items:[{
             xtype: 'radiogroup',
             cls: 'x-check-group-alt',
+            id:'radioGrp',
             items: [
-                {boxLabel: 'One Way', name: 'rb-auto', inputValue: 1,
+                {boxLabel: 'One Way', name: 'rb-auto', inputValue: 1,id:'oneWay',
 				listeners: {check:{fn:function(checkbox, checked){if (checked){Ext.getCmp('toCont').hide();}}}}},
-                {boxLabel: 'Round Trip', name: 'rb-auto', inputValue: 2, 
+                {boxLabel: 'Round Trip', name: 'rb-auto', inputValue: 2,id:'return', 
 				checked: true,
 				listeners: {check:{fn:function(checkbox, checked){if (checked){Ext.getCmp('toCont').show();}}}}}
                 
@@ -574,7 +505,7 @@ var button2= new Ext.Button(
 	buttonAlign: 'center',
 	align:'center',
 	autoScroll:true,
-	 bodyStyle: 'background-image: url("../flights.jpg");',
+	 bodyStyle: 'background-image: url("../image/flights.png");',
 	items:[flightfieldset,flightSites]
         
     });
