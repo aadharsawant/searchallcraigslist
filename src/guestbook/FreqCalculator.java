@@ -29,6 +29,7 @@ public class FreqCalculator {
 	 * 
 	 */
 	public FreqCalculator() {
+		
 		// TODO Auto-generated constructor stub
 	}
 

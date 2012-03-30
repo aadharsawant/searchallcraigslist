@@ -284,7 +284,15 @@ var button2= new Ext.Button(
                  
                  handler:function(){ 
                 	 
-                	 var cheapoairUrl = (<r><![CDATA[http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc]]></r>).toString();
+                	 
+                	 
+                	 var cheapoairUrl =
+                		 ['http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc',
+                		  ""
+                		 
+                		 ].join();
+                	 
+                	// var cheapoairUrl = (<r><![CDATA[http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc]]></r>).toString();
 
                 	 
                 	 
@@ -505,7 +513,7 @@ var button2= new Ext.Button(
 	buttonAlign: 'center',
 	align:'center',
 	autoScroll:true,
-	 bodyStyle: 'background-image: url("../image/flights.png");',
+	 bodyStyle: 'background-image: url("/web/image/flights.png");',
 	items:[flightfieldset,flightSites]
         
     });
