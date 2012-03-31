@@ -398,6 +398,22 @@ var button2= new Ext.Button(
                 	                    '%252F'+fromDate.getDate()+
                 	                    '%252F'+fromDate.getFullYear()
                 	                   ;
+                	 
+                	 
+                	 
+                	 var oneTravelUrl = 'http://click.linksynergy.com/fs-bin/click?id=Ln/ogdwcS3w&subid=&offerid=203567.1&type=10&tmpid=6536'+
+                	 '&RD_PARM1=http%253A%252F%252Fwww.tripmama.com%252Fdefault.aspx%253Ftabid%253D110%2526adtype%253D1%2526addetail'+
+                	 's%253D107-483-1%2526rdr%253D1%2526extended%253D7-1-2-c36a89584444424084f2c43044242a17%2526'+
+                	 'fc%253D'+fromCombo+
+	                    '%2526tc%253D'+toCombo+
+	                    '%2526at%253D'+adult+
+	                    '%2526ct%253D'+child+
+	                    '%2526cb%253D'+coachCombo+
+	                    '%2526tt%253D'+ticketType+
+	                    '%2526dd%253D'+(fromDate.getMonth()+1)+
+	                    '%252F'+fromDate.getDate()+
+	                    '%252F'+fromDate.getFullYear()
+	                   ;
                 	
                 	
                 	 
@@ -407,23 +423,70 @@ var button2= new Ext.Button(
             	                   '%2526rd%253D'+(toDate.getMonth()+1)+
            	                    '%252F'+toDate.getDate()+
            	                    '%252F'+toDate.getFullYear();
+            	   
+            	   
+            	   
+            	   oneTravelUrl = oneTravelUrl+
+                   '%2526rd%253D'+(toDate.getMonth()+1)+
+                   '%252F'+toDate.getDate()+
+                   '%252F'+toDate.getFullYear();
 				 }
                
                //alert(cheapoairUrl);
 				 
-				 var preview2 = new Ext.Panel({
-           id: 'cheapoair',
+               var preview2 ; 
+               if (Ext.getCmp('cheapoairPanel'))
+            	   {
+            	   Ext.getCmp('cheapoairPanel').update('<iframe width="100%" height="100%" src='+cheapoairUrl+'></iframe>');
+            	   }
+               else
+            	   {
+            	   preview2 = new Ext.Panel({
+            	  
+           id: 'cheapoairPanel',
 		 title:'Cheapoair',
          region: 'center',
          cls:'summary',
         //listeners: entityViewer.previewProvider,
         autoScroll: false,
-		tabid:0,
+		tabid:1,
 		closable:true,
 		 html:'<iframe width="100%" height="100%" src='+cheapoairUrl+'></iframe>'
 		 });
+            	   }
 		 Ext.getCmp('displayPanel').add(preview2);
 		 Ext.getCmp('displayPanel').setActiveTab(preview2);
+		 
+		 
+		 
+		 var preview1 ; 
+         if (Ext.getCmp('oneTravelPanel'))
+      	   {
+      	   Ext.getCmp('oneTravelPanel').update('<iframe width="100%" height="100%" src='+oneTravelUrl+'></iframe>');
+      	   }
+         else
+      	   {
+      	   preview1 = new Ext.Panel({
+      	  
+     id: 'oneTravelPanel',
+	 title:'OneTravel',
+   region: 'center',
+   cls:'summary',
+  //listeners: entityViewer.previewProvider,
+  autoScroll: false,
+	tabid:2,
+	closable:true,
+	 html:'<iframe width="100%" height="100%" src='+oneTravelUrl+'></iframe>'
+	 });
+      	   }
+		 
+		 
+		 
+		 
+         Ext.getCmp('displayPanel').add(preview1);
+		// Ext.getCmp('displayPanel').setActiveTab(preview2);
+		 
+		 
 
 		 Ext.getCmp('enterPanel').collapse(true);
 				 },

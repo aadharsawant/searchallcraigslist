@@ -1,6 +1,11 @@
 DisplayPanel = function() {
     
-  
+	 var gMapWin = new GMapWindow();
+	 
+	 
+	
+	// var flightPanel = new flightsPanel();
+	
 	DisplayPanel.superclass.constructor.call(this, {
         id:'displayPanel',
         activeTab:0,
@@ -11,7 +16,9 @@ DisplayPanel = function() {
         minTabWidth: 120,
         bodyStyle: 'background-image: url("/web/image/flights.png");',
        // enableTabScroll: true,
-        plugins: new Ext.ux.TabCloseMenu()
+        plugins: new Ext.ux.TabCloseMenu(),
+        items: [gMapWin]
+
         
        // }
     });

@@ -5,7 +5,50 @@
 
 DealController = {};
 
+//function onPositionUpdate(position)
+//{
+//     lat = position.coords.latitude;
+//     lng = position.coords.longitude;
+//    //alert("Current position: " + lat + " " + lng);
+//   
+//	
+//	//mapwin.show();
+//}
+
+
+
 Ext.onReady(function(){
+	
+//	function onPositionUpdate(position)
+//	{
+//	     lat = position.coords.latitude;
+//	     lng = position.coords.longitude;
+//	    //alert("Current position: " + lat + " " + lng);
+//	   
+//		
+//		//mapwin.show();
+//	}
+	
+	if(navigator.geolocation)
+			
+	navigator.geolocation.getCurrentPosition(onPositionUpdate);
+	
+
+//    if(navigator.geolocation)
+//        navigator.geolocation.getCurrentPosition(onPositionUpdate);
+//    else
+//        alert("navigator.geolocation is not available");
+//    
+    
+  //  var mapwin;
+   
+
+   
+  
+
+
+	
+	
     var enterPanel = new EnterPanel();
     var displayPanel = new DisplayPanel();
 	
