@@ -175,7 +175,7 @@ var adult = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'1',
+   // emptyText:'1',
     selectOnFocus:true
 });
 
@@ -192,7 +192,7 @@ var child = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'0',
+   // emptyText:'0',
     selectOnFocus:true
 });
 
@@ -210,7 +210,7 @@ var senior = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'0',
+  //  emptyText:'0',
     selectOnFocus:true
 });
 
@@ -229,7 +229,7 @@ var infonseat = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'0',
+   // emptyText:'0',
     selectOnFocus:true
 });
 
@@ -247,7 +247,7 @@ var infonlap = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'0',
+   // emptyText:'0',
     selectOnFocus:true
 });
 
@@ -273,7 +273,7 @@ var coachCombo = new Ext.form.ComboBox({
     typeAhead: true,
     mode: 'local',
     triggerAction: 'all',
-    emptyText:'Economy',
+    emptyText:'economy',
     selectOnFocus:true
 });
 var button2= new Ext.Button(
@@ -286,12 +286,7 @@ var button2= new Ext.Button(
                 	 
                 	 
                 	 
-                	 var cheapoairUrl =
-                		 ['http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc',
-                		  ""
-                		 
-                		 ].join();
-                	 
+                	
                 	// var cheapoairUrl = (<r><![CDATA[http://www.tripmama.com/default.aspx?tabid=110&adtype=1&addetails=84-474-1&rdr=1&extended=8-2-2-bd55eb088f4f44a1a4cc2a7922f5a1fc]]></r>).toString();
 
                 	 
@@ -310,7 +305,7 @@ var button2= new Ext.Button(
                 	 
                 	 
                 	 
-                	 cheapoairUrl +=  "&fc=" +fromCombo;
+                	 //cheapoairUrl +=  "%2526fc%253D" +fromCombo;
                 	//alert( Ext.getCmp('fromCombo').getValue());
                 	
                 	var toCombo =  Ext.getCmp('toCombo').getValue();
@@ -320,7 +315,7 @@ var button2= new Ext.Button(
            	 Ext.MessageBox.alert('Error Message',"Please Enter To Value"); 
            	 return;
            		 }
-                	cheapoairUrl +=  "&tc=" +toCombo;
+                	//cheapoairUrl +=  "%2526tc%253D" +toCombo;
                 	//alert( Ext.getCmp('toCombo').getValue());
                 	
 //                	alert (Ext.getCmp('radioGrp').getValue());
@@ -328,10 +323,11 @@ var button2= new Ext.Button(
                 	
                 	//alert (Ext.getCmp('return').getValue());
                 	var fromDate =  Ext.getCmp('fromDate').getValue();
-                	cheapoairUrl +=  "&dd=" +fromDate.format("m/d/y");
+                	//cheapoairUrl +=  "%2526dd%253D" +fromDate.format("m/d/y");
                 	//alert(Ext.getCmp('fromDate').getValue().format("m/d/y"))
                 	//alert( );
                 	var toDate =  Ext.getCmp('toDate').getValue();
+                	var ticketType = 1 ;
                 	if(Ext.getCmp('return').getValue())
                 		{
                 		if (fromDate>toDate)
@@ -339,11 +335,12 @@ var button2= new Ext.Button(
                 			 Ext.MessageBox.alert('Error Message',"From Date has to be before To date"); 
                            	 return;
                 			}
-                	cheapoairUrl +=  "&rd=" +toDate.format("m/d/y");
-                	cheapoairUrl +=  "&tt="+ 2;
+                	//cheapoairUrl +=  "%2526rd%253D" +toDate.format("m/d/y");
+                	//cheapoairUrl +=  "%2526tt%253D"+ 2;
+                	ticketType = 2 ;
                 		}
                 	else {
-                		cheapoairUrl +=  "&tt="+ 1;
+                		//cheapoairUrl +=  "%2526tt%253D"+ 1;
                 	}
                 	//alert( Ext.getCmp('toDate').getValue());
                 	var startTime =  Ext.getCmp('startTime').getValue();
@@ -355,14 +352,14 @@ var button2= new Ext.Button(
                 		{
                 		adult = '1';
                 		}
-                	cheapoairUrl +=  "&at=" +adult;
+                	//cheapoairUrl +=  "%2526at%253D" +adult;
                 	//alert( Ext.getCmp('adult').getValue());
                 	var child =  Ext.getCmp('child').getValue();
                 	if (child == '')
                 		{
                 		child='0';
                 		}
-                	cheapoairUrl +=  "&ct=" +child;
+                	//cheapoairUrl +=  "%2526ct%253D" +child;
                 	//alert( Ext.getCmp('child').getValue());
                 	var senior =  Ext.getCmp('senior').getValue();
                 	//alert( Ext.getCmp('senior').getValue());
@@ -373,21 +370,46 @@ var button2= new Ext.Button(
                 	var coachCombo =  Ext.getCmp('coachCombo').getValue();
                 	if(coachCombo==''||coachCombo=='Economy')
                 		{
-                		cheapoairUrl +=  "&cb=" +1;
+                		//cheapoairUrl +=  "%2526cb%253D" +1;
+                		coachCombo = 1;
                 		}
                 	else if (coachCombo=='Buisness')
                 		{
-                		cheapoairUrl +=  "&cb=" +2;
+                		//cheapoairUrl +=  "%2526cb%253D" +2;
+                		coachCombo = 2 ;
                 		}
                 	else if (coachCombo=='First')
             		{
-            		cheapoairUrl +=  "&cb=" +3;
+            		//cheapoairUrl +=  "%2526cb%253D" +3;
+            		coachCombo = 3 ;
             		}
                 	//alert( Ext.getCmp('coachCombo').getValue());
                 	
-                
-
-				 
+                	 var cheapoairUrl = 'http://click.linksynergy.com/fs-bin/click?id=Ln/ogdwcS3w&subid=&offerid=203567.1&type=10&tmpid=6536'+
+                	                     '&RD_PARM1=http%253A%252F%252Fwww.tripmama.com%252Fdefault.aspx%253Ftabid%253D110%2526adtype%253D1%2526addetails'+
+                	                     '%253D84-474-1%2526rdr%253D1%2526extended%253D8-1-2-373958509b8e4f70ab85fc2a32784af4%2526'+
+                	                    'fc%253D'+fromCombo+
+                	                    '%2526tc%253D'+toCombo+
+                	                    '%2526at%253D'+adult+
+                	                    '%2526ct%253D'+child+
+                	                    '%2526cb%253D'+coachCombo+
+                	                    '%2526tt%253D'+ticketType+
+                	                    '%2526dd%253D'+(fromDate.getMonth()+1)+
+                	                    '%252F'+fromDate.getDate()+
+                	                    '%252F'+fromDate.getFullYear()
+                	                   ;
+                	
+                	
+                	 
+               if (ticketType = 2 )
+				 {
+            	   cheapoairUrl = cheapoairUrl+
+            	                   '%2526rd%253D'+(toDate.getMonth()+1)+
+           	                    '%252F'+toDate.getDate()+
+           	                    '%252F'+toDate.getFullYear();
+				 }
+               
+               //alert(cheapoairUrl);
 				 
 				 var preview2 = new Ext.Panel({
            id: 'cheapoair',
