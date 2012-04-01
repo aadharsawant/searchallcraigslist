@@ -39,6 +39,8 @@ Ext.onReady(function(){
                 region:'north',
                 el: 'header',
                 height:32
+//                ,
+//                html:'<div id="planlongweekend" style="color:yellow"><i><b>       &nbsp;&nbsp;          Plan Long Weekend !</b> <i></div>'
             })
 			,
 			enterPanel
