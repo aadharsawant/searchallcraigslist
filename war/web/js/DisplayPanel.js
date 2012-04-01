@@ -10,7 +10,7 @@ DisplayPanel = function() {
         id:'displayPanel',
         activeTab:0,
         region:'center',
-        margins:'0 5 5 0',
+      //  margins:'0 5 5 0',
         resizeTabs:true,
         tabWidth:150,
         minTabWidth: 120,

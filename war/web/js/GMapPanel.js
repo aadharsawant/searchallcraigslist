@@ -52,7 +52,8 @@ Ext.ux.GMapPanel = Ext.extend(Ext.Panel, {
             }else{
                 if (this.gmapType === 'map'){
                     var point = new GLatLng(this.setCenter.lat,this.setCenter.lng);
-                    this.gmap.setCenter(point, this.zoomLevel);    
+                    this.geoCodeLookup(point);
+                  //  this.gmap.setCenter(point, this.zoomLevel);    
                 }
                 if (typeof this.setCenter.marker === 'object' && typeof point === 'object'){
                     this.addMarker(point,this.setCenter.marker,this.setCenter.marker.clear);
