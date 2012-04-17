@@ -52,8 +52,8 @@ Ext.onReady(function(){
             url: "http://localhost:8888/all-california-craigslist"
         })
     });
-    store.setDefaultSort('city', 'date');
-//alert(store.getCount());
+    store.setDefaultSort('location', 'desc');
+alert(store.getCount());
 
 function renderTopic(value, p, record){
     return String.format(

@@ -1,0 +1,35 @@
+{craigslist:[{"code": "ccc", "name": "COMMUNITY", "location": "COMMUNITY"},
+ {"code": "act", "name": "activities", "location": "activities COMMUNITY"},
+  {"code": "ats", "name": "artists", "location": "artists COMMUNITY"},
+  {"code": "kid", "name": "childcare", "location": "childcare COMMUNITY"},
+  {"code": "com", "name": "general", "location": "general COMMUNITY"},
+  {"code": "grp", "name": "groups", "location": "groups COMMUNITY"},
+  {"code": "pet", "name": "pets", "location": "pets COMMUNITY"},
+  {"code": "cal", "name": "events", "location": "events COMMUNITY"},
+  {"code": "laf", "name": "lost+found", "location": "lost+found COMMUNITY"},
+  {"code": "muc", "name": "musicians", "location": "musicians COMMUNITY"},
+  {"code": "vnn", "name": "local news", "location": "local news COMMUNITY"},
+  {"code": "pol", "name": "politics", "location": "politics COMMUNITY"},
+  {"code": "rid", "name": "rideshare", "location": "rideshare COMMUNITY"},
+  {"code": "vol", "name": "volunteers", "location": "volunteers COMMUNITY"},
+  {"code": "cal", "name": "classes", "location": "classes COMMUNITY"},
+  
+  {"code": "hhh", "name": "housing", "location": "housing"},
+  {"code": "apa", "name": "apts / housing", "location": "apts / housing"},
+  {"code": "sub", "name": "sublets / temporary", "location": "sublets / temporary"},
+  {"code": "hsw", "name": "housing wanted", "location": "housing wanted"},
+  {"code": "swp", "name": "housing swap", "location": "housing swap"},
+  {"code": "roo", "name": "rooms / shared", "location": "rooms / shared"},
+  {"code": "vac", "name": "vacation rentals", "location": "vacation rentals"},
+  {"code": "prk", "name": "parking / storage", "location": "parking / storage"},
+  {"code": "off", "name": "office / commercial", "location": "office / commercial"},
+  {"code": "rea", "name": "real estate for sale", "location": "real estate for sale"},
+  
+  {"code": "roo", "name": "rooms / shared", "location": "rooms / shared"},
+  {"code": "roo", "name": "rooms / shared", "location": "rooms / shared"},
+  {"code": "roo", "name": "rooms / shared", "location": "rooms / shared"},
+  
+  
+  
+  
+  ]}

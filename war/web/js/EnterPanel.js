@@ -4,6 +4,10 @@ EnterPanel = function() {
 
 	
 	 var flightPanel = new flightsPanel();
+	 
+	 var craigListPanel = new craigsListPanel();
+	 
+	 
 	
 	
 	EnterPanel.superclass.constructor.call(this, {
@@ -24,8 +28,8 @@ EnterPanel = function() {
         activeTab:0,
         collapseFirst:false
         ,
-		items:[flightPanel
-//		,flightPan
+		items:[craigListPanel,
+		       flightPanel		
 		]
         
     });

@@ -42,7 +42,7 @@ try {
 	
 	
 	String content = new Scanner(Readjson.class.getResourceAsStream("airports.txt")).useDelimiter("\\Z").next();
-	System.out.println(content);
+	//System.out.println(content);
 	
 	
 

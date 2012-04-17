@@ -15,6 +15,26 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<url-pattern>/guestbook</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>California</servlet-name>
+		<servlet-class>guestbook.CaliforniaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>California</servlet-name>
+		<url-pattern>/all-california-craigslist</url-pattern>
+	</servlet-mapping>
+	
+	
+	 <servlet>
+        <servlet-name>CaliforniaResult</servlet-name>
+        <jsp-file>/web/jsp/california-craigslist.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CaliforniaResult</servlet-name>
+        <url-pattern>/california.craigslist</url-pattern>
+    </servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>web/html/travel.html</welcome-file>
 	</welcome-file-list>

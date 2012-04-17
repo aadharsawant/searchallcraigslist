@@ -1,0 +1,22 @@
+<html>  
+    <head>  
+        <script type="text/javascript" src="http://api.skyscanner.net/api.ashx?key=3d67263f-3e13-428b-97ca-1eaab5819503"></script>  
+        <script type="text/javascript">              
+            skyscanner.load('maps', '1'); // loads Skyscanner Maps API  
+            function main(){                   
+                // create map  
+                var map = new skyscanner.maps.Map();  
+                // configure map  
+                map.setRoute('LOND',''); // marks London in UK as departure place  
+                // display map  
+                map.draw(document.getElementById('map'));  
+            };  
+            skyscanner.setOnLoadCallback(main);  
+        </script>  
+    </head>  
+    <body>                  
+        <div id="map">  
+            <a href="http://www.skyscanner.net/en/flights-from/lond/cheap-flights-from-london.html" target="_blank">Cheap Flights from London</a>  
+        </div>  
+  </body>  
+</html>  
