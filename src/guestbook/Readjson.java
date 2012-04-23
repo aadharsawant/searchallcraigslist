@@ -18,7 +18,7 @@ public class Readjson {
 	
 	//String content = new Scanner(Readjson.class.getResourceAsStream("airports.txt")).useDelimiter("\\Z").next();
 
-public  static JSONObject filterJson(String enteredVal) {
+public  static JSONObject filterJson(String enteredVal,String from) {
 //ClassLoader cl = Readjson.class.getClassLoader();
 
 	
@@ -39,9 +39,12 @@ try {
 //	//try {
 //		InputStreamReader in = new InputStreamReader(fis, "UTF-8");
 //		
+	if(from==null)
+	{
+		from="airports";
+	}
 	
-	
-	String content = new Scanner(Readjson.class.getResourceAsStream("airports.txt")).useDelimiter("\\Z").next();
+	String content = new Scanner(Readjson.class.getResourceAsStream(from+".txt")).useDelimiter("\\Z").next();
 	//System.out.println(content);
 	
 	
@@ -55,7 +58,7 @@ try {
 //String s =  input.toString();
 JSONObject json = new JSONObject(content);
 
-JSONArray jarray = json.getJSONArray("airports");
+JSONArray jarray = json.getJSONArray(from);
 
 JSONArray filterArray = new JSONArray();
 
@@ -70,18 +73,18 @@ for(int i=0 ; i < jarray.length(); i++) {
 	if(loc.toLowerCase().contains(enteredVal.toLowerCase())
 			){
 		System.out.println("jarray [" + i + "] --------" + loc);
-		filterJSONObject.accumulate("airports", aJSONObject);
+		filterJSONObject.accumulate(from, aJSONObject);
 	//	filterArray.put(aJSONObject);
 		continue;
 	}
 	else if (code.toLowerCase().contains(enteredVal.toLowerCase()))
 	{
-		filterJSONObject.accumulate("airports", aJSONObject);
+		filterJSONObject.accumulate(from, aJSONObject);
 		continue;
 	}
 	else if (name.toLowerCase().contains(enteredVal.toLowerCase()))
 	{
-		filterJSONObject.accumulate("airports", aJSONObject);
+		filterJSONObject.accumulate(from, aJSONObject);
 		continue;
 	}
 	

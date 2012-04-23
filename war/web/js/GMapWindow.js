@@ -11,6 +11,7 @@ var addThree = "";
 var addFour = "";
 var addFive = "";
 var hasPic = "";
+var byDate="";
 
 GMapWindow = function() {
 	
@@ -36,8 +37,10 @@ GMapWindow = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: "http://localhost:8888/all-california-craigslist"
+            url: "http://localhost:8888/all-california-craigslist",
+            conn :{ timeout: 200000000 }
         }),
+      //  proxy.conn = { timeout: 200000000 },
         
         listeners: {
         	beforeload: function(store) {
@@ -49,12 +52,21 @@ GMapWindow = function() {
         		  store.baseParams.addFour = addFour ;
         		  store.baseParams.addFive = addFive ;
         		  store.baseParams.hasPic = hasPic ;
+        		  store.baseParams.byDate = byDate ;
         		  
-        		}
+        		},
+     
+     load:function(store,records,opts){                    
+         //console.log(store.getRange());
+    	 byDate = encodeURIComponent(records[records.length-1].data.date);
+        // alert(encodeURIComponent(records[records.length-1].data.date));
+     }
+    
+
 
         }
     });
-    store.setDefaultSort('city', 'date');
+   // store.setDefaultSort('city', 'date');
 //alert(store.getCount());
 
 function renderTopic(value, p, record){
@@ -64,6 +76,18 @@ function renderTopic(value, p, record){
 }
     function renderLast(value, p, r){
         return String.format( r.data['location']);
+    }
+    
+    function renderDate(value, p, r){
+    	
+    	var date = new Date(r.data['date']);
+    	
+    	 var curr_date = date.getDate();
+    	  var curr_month = date.getMonth() + 1; //months are zero based
+    	  var curr_year = date.getFullYear();
+    	  return curr_date + "-" + curr_month + "-" + curr_year;
+
+       // return date.toString('yyyy-MM-dd'); ;
     }
 
     var grid = new Ext.grid.GridPanel({
@@ -114,7 +138,7 @@ function renderTopic(value, p, record){
            dataIndex: 'date',
           width:100,
            align: 'left',
-         //  renderer:renderTopic,
+           renderer:renderDate,
            sortable: true
        }
       //  ,{

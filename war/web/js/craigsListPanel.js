@@ -31,6 +31,76 @@ craigsListPanel = function() {
 	});
 	
 	
+	
+	
+	var craigsStore = new Ext.data.JsonStore({
+        root: 'craigslist',
+        totalProperty: 'totalCount',
+        idProperty: 'code',
+        remoteSort: true,
+
+        fields: [
+            'code', 'name', 'location'
+        ],
+
+        // load using script tags for cross domain, if the data in on the same domain as
+        // this page, an HttpProxy would be better
+        proxy: new Ext.data.ScriptTagProxy({
+            url: 'http://localhost:8888/guestbook'
+        }),
+        
+        listeners: {
+        	beforeload: function(store) {
+        		store.baseParams.from = "craigslist";
+        		 
+        		  
+        		}
+
+        }
+    });
+	
+	
+
+	// Custom rendering Template
+    var resultTpl = new Ext.XTemplate(
+        '<tpl for="."><div class="search-item" >',
+          
+        ' &nbsp;&nbsp;{name}',
+            '<br></br>',
+           
+          
+        '</div></tpl>'
+    );
+	
+	
+	
+	var insection = new Ext.form.ComboBox({
+	    fieldLabel: 'In Section',
+	    hiddenName: 'insection',
+	    labelStyle: 'font-weight:bold;',
+	    id:'insection',
+	    store: craigsStore,
+	    displayField: 'name',
+	    valueField:'code',
+	    typeAhead: false,
+	    mode: 'remote',
+	   // triggerAction: 'all',
+	    hideTrigger:true,
+	    emptyText:'Jobs',
+	    selectOnFocus:true,
+	    forceSelection:true,
+
+	   minChars:3,
+	        loadingText: 'Searching...',
+	  
+	        itemSelector: 'div.search-item',
+	      tpl:resultTpl,
+	    pageSize: 10
+	});
+	
+	
+	
+	
 	var searchIn = new Ext.form.TextField({
 	    fieldLabel: 'In',
 	    hiddenName: 'in',
@@ -63,7 +133,7 @@ craigsListPanel = function() {
                  
                  handler:function(){
                 	  text = Ext.getCmp('searchCombo').getValue();
-                	  typeIn = Ext.getCmp('inCombo').getValue();
+                	  typeIn = Ext.getCmp('insection').getValue();
                 	  if(Ext.getCmp('telecommute').getValue())
                 		 
                 		  addOne = 'telecommuting';
@@ -121,8 +191,7 @@ craigsListPanel = function() {
 	    buttonAlign: 'center',
 	  
 		align:'center',
-		items:[search,searchIn
-		       ,
+		items:[search,insection,
 		       {
             xtype: 'checkboxgroup',
           // fieldLabel: 'Multi-Column (vertical)',

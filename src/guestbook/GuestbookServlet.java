@@ -21,9 +21,10 @@ public class GuestbookServlet extends HttpServlet {
 		//resp.setCharacterEncoding("UTF-8");
 		String callback = req.getParameter("callback");
 		String enteredVal = req.getParameter("query");
+		String from = req.getParameter("from");
 		resp.setContentType("text/plain");
 		try {
-			resp.getWriter().println(getJSONPObject( callback,  Readjson.filterJson(enteredVal)));
+			resp.getWriter().println(getJSONPObject( callback,  Readjson.filterJson(enteredVal,from)));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

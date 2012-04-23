@@ -68,7 +68,13 @@ else
 
 JSONArray filterArray = new JSONArray();
 
-
+int off = new Integer(offset);
+int lim = new Integer(limit);
+int loopTill = lim+off ;
+if (count1<loopTill)
+{
+	loopTill = count1 ;
+}
 //System.out.println("ssssssss" + searchresults.optString("count", ""));
 //JSONArray array = searchresults.getJSONArray("URI");
 for(int i=0 ; i < jarray.length(); i++) {
