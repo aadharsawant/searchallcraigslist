@@ -57,8 +57,13 @@ JSONObject json = new JSONObject(content);
 JSONArray jarray  = new JSONArray ();
 String count = json.getJSONObject("query").getString("count");
 int count1 = new Integer(count);
-if (count1>0)
+if (count1>1)
  jarray = json.getJSONObject("query").getJSONObject("results").getJSONArray("RDF");
+else if (count1==1)
+{
+	jarray.put(json.getJSONObject("query").getJSONObject("results").getJSONObject("RDF"));
+	//filterJSONObject.accumulate("items", new JSONObject());
+}
 else 
 {
 	filterJSONObject.accumulate("items", new JSONObject());
@@ -120,9 +125,9 @@ System.out.println("jarray [" + "] --------" + filterJSONObject.toString());
 //int count1 = new Integer(count);
 int limit1  = new Integer(limit);
 int offset1 = new Integer(offset);
-int countFinal = 0;
-//if (count1 == limit1)
-if (count1 > 0)
+int countFinal = count1;
+if (count1 == limit1)
+//if (count1 > 0)
 	countFinal = limit1+offset1+1;
 filterJSONObject.put("totalProperty", countFinal);
 

@@ -58,6 +58,7 @@ GMapWindow = function() {
      
      load:function(store,records,opts){                    
          //console.log(store.getRange());
+    	 if (records[records.length-1])
     	 byDate = encodeURIComponent(records[records.length-1].data.date);
         // alert(encodeURIComponent(records[records.length-1].data.date));
      }

@@ -144,7 +144,104 @@ public class CaliforniaServlet extends HttpServlet {
 			"'quadcities'",
 			"'siouxcity'",
 			"'ottumwa'",
-			"'waterloo'"
+			"'waterloo'",
+			//kansas
+			"'lawrence'",
+			"'ksu'",
+			"'nwks'",
+			"'salina'",
+			"'seks'",
+			"'swks'",
+			"'topeka'",
+			"'wichita'",
+
+
+			//kentucky
+
+			"'bgky'",
+			"'eastky'",
+			"'lexington'",
+			"'louisville'",
+			"'owensboro'",
+			"'westky'",
+
+
+			//Lousiana
+			"'batonrouge'",
+			"'cenla'",
+			"'houma'",
+			"'lafayette'",
+			"'lakecharles'",
+			"'monroe'",
+			"'neworleans'",
+			"'shreveport'",
+
+
+			//maine
+
+			"'maine'",
+
+
+			//Maryland
+			"'annapolis'",
+			"'baltimore'",
+			"'easternshore'",
+			"'frederick'",
+			"'smd'",
+			"'westmd'",
+
+
+
+			//Massachusetts
+			"'boston'",
+			"'capecod'",
+			"'southcoast'",
+			"'westernmass'",
+			"'worcester'",
+
+
+
+			//Michigan
+			"'annarbor'",
+			"'battlecreek'",
+			"'centralmich'",
+			"'detroit'",
+			"'flint'",
+			"'grandrapids'",
+			"'holland'",
+			"'jxn'",
+			"'kalamazoo'",
+			"'lansing'",
+			"'monroemi'",
+			"'muskegon'",
+			"'nmi'",
+			"'porthuron'",
+			"'saginaw'",
+			"'swmi'",
+			"'thumb'",
+			"'up'",
+
+
+			//Minnesota
+
+
+			"'bemidji'",
+			"'brainerd'",
+			"'duluth'",
+			"'mankato'",
+			"'minneapolis'",
+			"'rmn'",
+			"'marshall'",
+			"'stcloud'",
+
+			//Missippi
+			"'gulfport'",
+			"'hattiesburg'",
+			"'jackson'",
+			"'meridian'",
+			"'northmiss'",
+			"'natchez'"
+			
 			
 			);
 	public static final List <String> california = Arrays.asList("'sfbay'","'bakersfield'","'chico'","'fresno'","'goldcountry'","'hanford'","'humboldt'","'imperial'","'inlandempire'","'losangeles'","'mendocino'","'merced'",
@@ -301,6 +398,100 @@ public class CaliforniaServlet extends HttpServlet {
 			"'siouxcity'",
 			"'ottumwa'",
 			"'waterloo'"
+			);
+	
+	
+	public static final List <String> kansas = Arrays.asList(
+			"'lawrence'",
+			"'ksu'",
+			"'nwks'",
+			"'salina'",
+			"'seks'",
+			"'swks'",
+			"'topeka'",
+			"'wichita'"
+			);
+	
+	
+	public static final List <String> kentucky = Arrays.asList(
+			"'bgky'",
+			"'eastky'",
+			"'lexington'",
+			"'louisville'",
+			"'owensboro'",
+			"'westky'"
+			);
+	public static final List <String> lousiana = Arrays.asList(
+			"'batonrouge'",
+			"'cenla'",
+			"'houma'",
+			"'lafayette'",
+			"'lakecharles'",
+			"'monroe'",
+			"'neworleans'",
+			"'shreveport'"
+			);
+	public static final List <String> maine = Arrays.asList(
+			"'maine'"
+			);
+	public static final List <String> maryland = Arrays.asList(
+			"'annapolis'",
+			"'baltimore'",
+			"'easternshore'",
+			"'frederick'",
+			"'smd'",
+			"'westmd'"
+			);
+	public static final List <String> massacheusetts = Arrays.asList(
+			"'boston'",
+			"'capecod'",
+			"'southcoast'",
+			"'westernmass'",
+			"'worcester'"
+			);
+	public static final List <String> michigan = Arrays.asList(
+			"'annarbor'",
+			"'battlecreek'",
+			"'centralmich'",
+			"'detroit'",
+			"'flint'",
+			"'grandrapids'",
+			"'holland'",
+			"'jxn'",
+			"'kalamazoo'",
+			"'lansing'",
+			"'monroemi'",
+			"'muskegon'",
+			"'nmi'",
+			"'porthuron'",
+			"'saginaw'",
+			"'swmi'",
+			"'thumb'",
+			"'up'"
+			);
+	
+	
+	
+	public static final List <String> minnesota = Arrays.asList(
+			"'bemidji'",
+			"'brainerd'",
+			"'duluth'",
+			"'mankato'",
+			"'minneapolis'",
+			"'rmn'",
+			"'marshall'",
+			"'stcloud'"
+			);
+	
+	
+	public static final List <String> missipi = Arrays.asList(
+
+"'gulfport'",
+"'hattiesburg'",
+"'jackson'",
+"'meridian'",
+"'northmiss'",
+"'natchez'"
 			);
 	
 	
