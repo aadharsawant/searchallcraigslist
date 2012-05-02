@@ -37,7 +37,7 @@ GMapWindow = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: "http://localhost:8888/all-california-craigslist",
+            url: "http://searchdeck.appspot.com/all-california-craigslist",
             conn :{ timeout: 200000000 }
         }),
       //  proxy.conn = { timeout: 200000000 },

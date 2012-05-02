@@ -45,6 +45,9 @@ EnterPanel = function() {
 
 
 
+
+
+
 Ext.reg('enterPanel', EnterPanel); 
 Ext.extend(EnterPanel, Ext.TabPanel, {
 

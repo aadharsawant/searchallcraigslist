@@ -18,7 +18,7 @@ craigsListPanel = function() {
 	    mode: 'remote',
 	   // triggerAction: 'all',
 	    hideTrigger:true,
-	    emptyText:'Search All California CraigsList',
+	    emptyText:'Search All USA CraigsList',
 	    selectOnFocus:true,
 	    forceSelection:true,
 
@@ -46,7 +46,7 @@ craigsListPanel = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: 'http://localhost:8888/guestbook'
+            url: 'http://searchdeck.appspot.com/guestbook'
         }),
         
         listeners: {
@@ -86,7 +86,7 @@ craigsListPanel = function() {
 	    mode: 'remote',
 	   // triggerAction: 'all',
 	    hideTrigger:true,
-	    emptyText:'Jobs',
+	    emptyText:'Type Section Like : Jobs',
 	    selectOnFocus:true,
 	    forceSelection:true,
 

@@ -38,9 +38,9 @@ Ext.onReady(function(){
             new Ext.BoxComponent({ // raw element
                 region:'north',
                 el: 'header',
-                height:32
-//                ,
-//                html:'<div id="planlongweekend" style="color:yellow"><i><b>       &nbsp;&nbsp;          Plan Long Weekend !</b> <i></div>'
+                height:52
+               ,
+                html:'<span style="color:blue;padding:5 5 5 5"><div></div><div class="fb-like" style="width:30%; text-align:center; float:right; clear:both;" data-href="http://searchdeck.appspot.com/" data-send="true" data-width="450" data-show-faces="false"></div><i>&nbsp;&nbsp;&nbsp;Search All and Every CraigsList ; An Aadhar Sawant Creation .</i></span>'
             })
 			,
 			enterPanel
