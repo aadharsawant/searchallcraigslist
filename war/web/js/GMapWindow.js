@@ -12,6 +12,8 @@ var addFour = "";
 var addFive = "";
 var hasPic = "";
 var byDate="";
+var grid = "";
+Ext.Ajax.timeout = 120000;
 
 GMapWindow = function() {
 	
@@ -37,8 +39,12 @@ GMapWindow = function() {
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
         proxy: new Ext.data.ScriptTagProxy({
-            url: "http://searchdeck.appspot.com/all-california-craigslist",
-            conn :{ timeout: 200000000 }
+            url: "http://localhost:8888/all-california-craigslist",
+            type:"ajax",
+            async:"true",
+            timeout:120000
+            	//,
+          //  conn :{ timeout: 120000 }
         }),
       //  proxy.conn = { timeout: 200000000 },
         
@@ -61,7 +67,12 @@ GMapWindow = function() {
     	 if (records[records.length-1])
     	 byDate = encodeURIComponent(records[records.length-1].data.date);
         // alert(encodeURIComponent(records[records.length-1].data.date));
-     }
+     },
+     
+     afterload: function(store) {
+		  
+		  alert("loaded");
+		},
     
 
 
@@ -91,7 +102,7 @@ function renderTopic(value, p, record){
        // return date.toString('yyyy-MM-dd'); ;
     }
 
-    var grid = new Ext.grid.GridPanel({
+     grid = new Ext.grid.GridPanel({
        layout:'fit',
       // height:500,
         title:'CraigsList Search Results', 
@@ -99,7 +110,7 @@ function renderTopic(value, p, record){
         trackMouseOver:false,
         disableSelection:true,
         loadMask: true,
-
+//autoLoad:true,
         // grid columns
         columns:[
          //        {

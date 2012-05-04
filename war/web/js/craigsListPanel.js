@@ -177,7 +177,8 @@ craigsListPanel = function() {
                 			  hasPic = '';
                     	  }
                 	// alert(Ext.getCmp('searchCombo').getValue());
-                	 store.load({params:{start:0, limit:100 }});
+                		 grid.getStore().load({params:{start:0, limit:100 }});
+                	 //store.load({params:{start:0, limit:100 }});
                  },
                  descriptionText:'Submit CraigsLsit Search Details'
                  });
