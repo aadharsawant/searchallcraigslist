@@ -1,6 +1,7 @@
 package guestbook;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,13 +11,15 @@ import com.google.appengine.repackaged.org.json.JSONException;
 import com.google.appengine.repackaged.org.json.JSONObject;
 
 
-
 @SuppressWarnings("serial")
 public class GuestbookServlet extends HttpServlet {
+	
+	private static final Logger l =  Logger.getLogger(GuestbookServlet.class.getName());
+
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
 		
-		
+		 l.info("Inside guestbook servlet");
 		//resp.setContentType("application/json");
 		//resp.setCharacterEncoding("UTF-8");
 		String callback = req.getParameter("callback");
@@ -26,6 +29,7 @@ public class GuestbookServlet extends HttpServlet {
 		try {
 			resp.getWriter().println(getJSONPObject( callback,  Readjson.filterJson(enteredVal,from)));
 		} catch (JSONException e) {
+			l.severe(e.getMessage());
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

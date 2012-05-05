@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -2010,10 +2011,12 @@ public class CaliforniaServlet extends HttpServlet {
 "'natchez'"
 			);
 	
-	
+	private static final Logger l =  Logger.getLogger(CaliforniaServlet.class.getName());
 	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
+		
+		l.info("inside california servlet");
 		
 		//String query = "cricketer sachin tendulkar";
         String API_KEY="xxxxx";//get your own key
@@ -2191,16 +2194,18 @@ public class CaliforniaServlet extends HttpServlet {
 //            aString.add(s5);
            //  s = s+s2+s3+s4+s5;
             
-            resp.setContentType("text/plain");
+            resp.setContentType("application/json");
     		try {
     			
     			CraigsListReadjson aCraigsListReadjson = new CraigsListReadjson();
     			resp.getWriter().println( callback + '(' + aCraigsListReadjson.filterJson(aString,offset,limit) +')' );
     		} catch (Exception e) {
+    			l.severe( e.getMessage());
     			// TODO Auto-generated catch block
     			e.printStackTrace();
     		}
         } catch (Exception e) {
+        	l.severe( e.getMessage());
             e.printStackTrace();
         }
 
