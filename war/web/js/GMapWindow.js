@@ -42,7 +42,8 @@ GMapWindow = function() {
         	new Ext.data.ScriptTagProxy(
         	//new Ext.data.HttpProxy(
         		{
-            url: "http://searchdeck.appspot.com/all-california-craigslist",
+            //url: "http://searchdeck.appspot.com/all-california-craigslist",
+            url: "http://localhost:8888/all-california-craigslist",
            // type:"ajax",
            // method:"GET",
           //  async:"true",
@@ -69,7 +70,8 @@ GMapWindow = function() {
      load:function(store,records,opts){                    
          //console.log(store.getRange());
     	 if (records[records.length-1])
-    	 byDate = encodeURIComponent(records[records.length-1].data.date);
+    		 byDate = records[records.length-1].data.date;
+    	// byDate = encodeURIComponent(records[records.length-1].data.date);
         // alert(encodeURIComponent(records[records.length-1].data.date));
      },
      

@@ -2097,6 +2097,8 @@ public class CaliforniaServlet extends HttpServlet {
         	        	"%20and%20item.date%3C'"+itemDate+"'" ;
         	}
         	
+        	//2012-05-04T14:24:43-05:00
+        	
         	
         	
 //http://query.yahooapis.com/v1/public/yql?q=USE%20%22http%3A%2F%2Fplanlongweekend.appspot.com%2Fcraigslist.search.xml%22%20AS%20craig_table%3B%20SELECT%20item%20FROM%20craig_table%20where%20location%20in%20('sfbay'%2C'bakersfield'%2C'chico'%2C'fresno'%2C'goldcountry'%2C'hanford'%2C'humboldt'%2C'imperial'%2C'inlandempire'%2C'losangeles'%2C'mendocino'%2C'merced'%2C%0A'modesto'%2C%0A'monterey'%2C%0A'orangecounty'%2C%0A'palmsprings'%2C%0A'redding'%2C%0A'reno'%2C%0A'sacramento'%2C%0A'sandiego'%2C%0A'slo'%2C%0A'santabarbara'%2C%0A'santamaria'%2C%0A'siskiyou'%2C%0A'stockton'%2C%0A'susanville'%2C%0A'ventura'%2C%0A'visalia'%2C%0A'yubasutter'%2C'auburn'%2C'bham'%2C'dothan'%2C'shoals'%2C'gadsden'%2C'huntsville'%2C'mobile'%2C'montgomery'%2C'tuscaloosa')%20and%20type%20%3D%20'vol'%20and%20query%20%3D%20'%20'%20%20%20%7C%20sort(field%3D%22item.date%22)%20%20%7C%20truncate%20(100)&format=json&callback=cbfunc        	
@@ -2104,10 +2106,26 @@ public class CaliforniaServlet extends HttpServlet {
 //http://query.yahooapis.com/v1/public/yql?q=USE%20%22http%3A%2F%2Fplanlongweekend.appspot.com%2Fcraigslist.search.xml%22%20AS%20craig_table%3B%20SELECT%20item%20FROM%20craig_table%20where%20location%20in%20('sfbay'%2C'bakersfield'%2C'chico'%2C'fresno'%2C'goldcountry'%2C'hanford'%2C'humboldt'%2C'imperial'%2C'inlandempire'%2C'losangeles'%2C'mendocino'%2C'merced'%2C%0A'modesto'%2C%0A'monterey'%2C%0A'orangecounty'%2C%0A'palmsprings'%2C%0A'redding'%2C%0A'reno'%2C%0A'sacramento'%2C%0A'sandiego'%2C%0A'slo'%2C%0A'santabarbara'%2C%0A'santamaria'%2C%0A'siskiyou'%2C%0A'stockton'%2C%0A'susanville'%2C%0A'ventura'%2C%0A'visalia'%2C%0A'yubasutter'%2C'auburn'%2C'bham'%2C'dothan'%2C'shoals'%2C'gadsden'%2C'huntsville'%2C'mobile'%2C'montgomery'%2C'tuscaloosa'%2C'anchorage'%2C%0A'fairbanks'%2C%0A'kenai'%2C%0A'juneau'%2C%0A%0A'flagstaff'%2C%0A'mohave'%2C%0A'phoenix'%2C%0A'prescott'%2C%0A'showlow'%2C%0A'sierravista'%2C%0A'tucson'%2C%0A'yuma')%20and%20type%20%3D%20'vol'%20and%20query%20%3D%20'html'%20%20and%20item.date%3C'2012-04-18T20%3A19%3A06-07%3A00'%20%7C%20sort(field%3D%22item.date%22%20%2Cdescending%3D%22true%22)%20%7Ctruncate(100)&format=json&callback=cbfunc        	
         	
            // query = URLEncoder.encode(query, "UTF-8");
-            url = new URL("http://query.yahooapis.com/v1/public/yql?q=USE%20%22http%3A%2F%2Fplanlongweekend.appspot.com%2Fcraigslist.search.xml"
-            		+ "%22%20AS%20craig_table%3B%20SELECT%20item%20FROM%20craig_table%20where%20location%20in%20("+megastates+")%20and%20type%20%3D%20'"+inType+"'%20and%20query%20%3D%20'"
-            		+query+ "'"+urlParams+ "%20%7C%20sort(field%3D%22item.date%22%20%2Cdescending%3D%22true%22)%20%7Ctruncate("+limit+")&format=json");
-           
+//            url = 
+//            		new URL("http://query.yahooapis.com/v1/public/yql?q=USE%20%22http%3A%2F%2Fsearchdeck.appspot.com%2Fcraigslist.search.xml"
+//            		+ "%22%20AS%20craig_table%3B%20SELECT%20item%20FROM%20craig_table%20where%20location%20in%20("+megastates+")%20and%20type%20%3D%20'"+inType+"'%20and%20query%20%3D%20'"
+//            		+query+ "'"+urlParams+ "%20%7C%20sort(field%3D%22item.date%22%20%2Cdescending%3D%22true%22)%20%7Ctruncate("+limit+")&format=json");
+//            url = 
+//   new URL("http://query.yahooapis.com/v1/public/yql/allcraigslist/allusavariable?format=json&insection="+inType+"&typedText="+query);
+//           
+            if (offset!=null && (!offset.equals("0")))
+        	{
+            	
+            	 url = 
+            			   new URL("http://query.yahooapis.com/v1/public/yql/allcraigslist/allusavariable2?format=json&insection="+inType+"&typedText="+query+"&lastdate="+itemDate);
+        		//item.date%3C'2012-04-18T20%3A19%3A06-07%3A00'
+//        		urlParams = urlParams +
+//        	        	"%20and%20item.date%3C'"+itemDate+"'" ;
+        	}
+            else {
+            	 url = 
+            			   new URL("http://query.yahooapis.com/v1/public/yql/allcraigslist/allusavariable?format=json&insection="+inType+"&typedText="+query);
+            }
             URLConnection connection = url.openConnection();
             connection.setConnectTimeout(200000000);
             connection.setReadTimeout(200000000);
