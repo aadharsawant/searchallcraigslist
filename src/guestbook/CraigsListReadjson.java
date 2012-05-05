@@ -144,7 +144,7 @@ for(int i=0 ; i < jarray.length(); i++) {
  catch(Exception e) {
 e.printStackTrace();
 }
-System.out.println("jarray [" + "] --------" + filterJSONObject.toString());
+//System.out.println("jarray [" + "] --------" + filterJSONObject.toString());
 }
 //Collections.sort(alist, new CraigsComparator());
 //int count1 = new Integer(count);
