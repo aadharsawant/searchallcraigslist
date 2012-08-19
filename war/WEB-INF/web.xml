@@ -14,6 +14,14 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 		<servlet-name>Guestbook</servlet-name>
 		<url-pattern>/guestbook</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Sections</servlet-name>
+		<servlet-class>guestbook.SectionsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sections</servlet-name>
+		<url-pattern>/sections</url-pattern>
+	</servlet-mapping>
 	
 	<servlet>
 		<servlet-name>California</servlet-name>
@@ -22,6 +30,25 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<servlet-mapping>
 		<servlet-name>California</servlet-name>
 		<url-pattern>/all-california-craigslist</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BackPage</servlet-name>
+		<servlet-class>guestbook.BackPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BackPage</servlet-name>
+		<url-pattern>/all-backpage</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>Reachoo</servlet-name>
+		<servlet-class>guestbook.ReachooServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Reachoo</servlet-name>
+		<url-pattern>/all-reachoo</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -34,8 +61,19 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
         <servlet-name>CaliforniaResult</servlet-name>
         <url-pattern>*.</url-pattern>
     </servlet-mapping>
+    
+    
+	 <servlet>
+        <servlet-name>IndiaResult</servlet-name>
+        <jsp-file>/web/jsp/all-india-craigslist.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>IndiaResult</servlet-name>
+        <url-pattern>/all-india-craigslist</url-pattern>
+    </servlet-mapping>
 	
-	<welcome-file-list>
+	  <welcome-file-list>
 		<welcome-file>web/jsp/california-craigslist.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

@@ -5,7 +5,7 @@ EnterPanel = function() {
 	
 	 var flightPanel = new flightsPanel();
 	 
-	 var craigListPanel = new craigsListPanel();
+	// var craigListPanel = new craigsListPanel();
 	 
 	 
 	
@@ -13,7 +13,6 @@ EnterPanel = function() {
 	EnterPanel.superclass.constructor.call(this, {
         id:'enterPanel',
         region:'west',
-        
         title:'Cruises',
         split:true,
         width: 300,
@@ -28,7 +27,8 @@ EnterPanel = function() {
         activeTab:0,
         collapseFirst:false
         ,
-		items:[craigListPanel,
+		items:[
+		       //craigListPanel,
 		       flightPanel		
 		]
         

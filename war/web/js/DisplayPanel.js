@@ -2,6 +2,12 @@ DisplayPanel = function() {
     
 	 var gMapWin = new GMapWindow();
 	 
+	 var reachooWin = new ReachooWindow();
+	 
+	 var craigListPanel = new craigsListPanel();
+	 
+	// var bpGrid = new Bpgrid();
+	 
 	 
 	
 	// var flightPanel = new flightsPanel();
@@ -17,7 +23,9 @@ DisplayPanel = function() {
         bodyStyle: 'background-image: url("/web/image/flights.png");',
        // enableTabScroll: true,
         plugins: new Ext.ux.TabCloseMenu(),
-        items: [gMapWin]
+        items: [craigListPanel,gMapWin,reachooWin
+                //,bpGrid
+                ]
 
         
        // }

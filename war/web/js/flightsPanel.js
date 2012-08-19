@@ -116,6 +116,8 @@ var to = new Ext.form.ComboBox({
 
 var today = new Date(); // get today date
 
+
+
 var fromDate = new Ext.form.DateField({
 	id:'fromDate',
     fieldLabel:'From Date',

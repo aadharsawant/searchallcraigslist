@@ -1,4 +1,4 @@
-package org.eclipse.ui.examples.javaeditor;
+package guestbook;
 
 /**
  * @author aasawant

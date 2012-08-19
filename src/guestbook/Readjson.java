@@ -26,8 +26,10 @@ public  static JSONObject filterJson(String enteredVal,String from) {
 JSONObject filterJSONObject = new JSONObject();
 
 if (enteredVal == null || enteredVal.equalsIgnoreCase(""))
+	
 {
-	return filterJSONObject ;
+//	if(!from.equals("dataview"))
+//	return filterJSONObject ;
 }
 //try {
 	
@@ -62,6 +64,22 @@ JSONArray jarray = json.getJSONArray(from);
 
 JSONArray filterArray = new JSONArray();
 
+if(enteredVal==null)
+{
+for(int i=0 ; i < jarray.length(); i++) {
+	JSONObject aJSONObject = jarray.getJSONObject(i);
+	String loc = aJSONObject.getString("location");
+	String code = aJSONObject.getString("code");
+	String name = aJSONObject.getString("name");
+	filterJSONObject.accumulate(from, aJSONObject);
+	
+	
+	
+	
+}
+}
+else
+{
 
 //System.out.println("ssssssss" + searchresults.optString("count", ""));
 //JSONArray jarray = searchresults.getJSONArray("URI");
@@ -72,7 +90,6 @@ for(int i=0 ; i < jarray.length(); i++) {
 	String name = aJSONObject.getString("name");
 	if(loc.toLowerCase().contains(enteredVal.toLowerCase())
 			){
-		System.out.println("jarray [" + i + "] --------" + loc);
 		filterJSONObject.accumulate(from, aJSONObject);
 	//	filterArray.put(aJSONObject);
 		continue;
@@ -87,13 +104,12 @@ for(int i=0 ; i < jarray.length(); i++) {
 		filterJSONObject.accumulate(from, aJSONObject);
 		continue;
 	}
-	
+}
 	
 	
 }
 
 
-System.out.println("jarray [" + "] --------" + filterJSONObject.toString());
 
 
 } catch(Exception e) {

@@ -1,16 +1,10 @@
 package guestbook;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
-
-import sun.misc.IOUtils;
+import java.util.logging.Logger;
 
 import com.google.appengine.repackaged.org.json.JSONArray;
 import com.google.appengine.repackaged.org.json.JSONException;
@@ -20,15 +14,23 @@ import com.google.appengine.repackaged.org.json.JSONObject;
 
 public class CraigsListReadjson {
 	
+	SimpleDateFormat aSF = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
+	
+	private static final Logger log =  Logger.getLogger(CraigsListReadjson.class.getName());
+	
 	//String content = new Scanner(Readjson.class.getResourceAsStream("airports.txt")).useDelimiter("\\Z").next();
 
-public   JSONObject filterJson(List<String> lListJon,String offset ,String limit) {
+public   JSONObject filterJson(List<String> lListJon,String offset ,String limit,List<String> dateList) {
 //ClassLoader cl = Readjson.class.getClassLoader();
 
+	List<Date> aDateList = new ArrayList<Date>();
 	
-
+	Date pageDate = new Date();
+    Date tempDate =  new Date();
+    String pgDate = "";
 JSONObject filterJSONObject = new JSONObject();
 List<JSONObject> alist = new ArrayList<JSONObject>();
+List<JSONObject> lastlist = new ArrayList<JSONObject>();
 Boolean nextPage =false ;
 int totalCount = 0;
 int count1 =0;
@@ -101,7 +103,8 @@ if (count1<loopTill)
 for(int i=0 ; i < jarray.length(); i++) {
 	JSONObject aJSONObject = jarray.getJSONObject(i);
 	JSONObject item = aJSONObject.getJSONObject("item");
-	String link = item.getString("link");
+	String link = item.getString("about");
+	//String titlet = item.getString("title");
 	JSONArray title = item.getJSONArray("title");
 	JSONObject bJSONObject = new JSONObject();
 	bJSONObject.put("link", link);
@@ -109,15 +112,26 @@ for(int i=0 ; i < jarray.length(); i++) {
 	
 	String titleS = title.getString(0);
 	bJSONObject.put("title", titleS);
+	//bJSONObject.put("title", titlet);
 	bJSONObject.put("city", city);
 	
 	String date = item.getString("date");
 	bJSONObject.put("date", date);
-//	if(loc.toLowerCase().contains(craigsListJon.toLowerCase())
-//			){
-		//System.out.println("jarray [" + i + "] --------" + titleS);
-		//filterJSONObject.accumulate("items", bJSONObject);
+	
+	
+	if(i ==(jarray.length()-1))
+	{
+		
+		//log.info("dates in contention are"+ date);
+		
+		dateList.add(date);
+		lastlist.add(bJSONObject);
+		
+	}
+	else
+	{
 		alist.add(bJSONObject);
+	}
 		
 	//	filterArray.put(aJSONObject);
 		continue;
@@ -146,7 +160,10 @@ e.printStackTrace();
 }
 //System.out.println("jarray [" + "] --------" + filterJSONObject.toString());
 }
-//Collections.sort(alist, new CraigsComparator());
+Collections.sort(alist, new CraigsComparator());
+Collections.sort(lastlist, new CraigsComparator());
+Collections.reverse(lastlist);
+alist.addAll(lastlist);
 //int count1 = new Integer(count);
 int limit1  = new Integer(limit);
 int offset1 = new Integer(offset);
@@ -161,6 +178,7 @@ try {
 		totalCount++;
 	}
 	filterJSONObject.put("totalProperty", countFinal);
+	
 } catch (JSONException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();

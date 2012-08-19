@@ -1,26 +1,33 @@
 <html>
 <head>
-<meta name="description" content="Search All Craigslist ,Search Every Craigslist ,All USA Craigslist" />
-<meta name="keywords" content="Search All Craigslist ,Search Every Craigslist ,All USA Craigslist" />
-<meta name="author" content="Aadhar Sawant " />
+<meta name="description" content="Search All Craigslist ,Search Every Craigslist ,All USA Craigslist ,Search All Canada Craigslist,Search All India Craigslist,,Search All Japan Craigslist,,Search All Australia Craigslist " />
+<meta name="keywords" content="Search All Craigslist ,Search Every Craigslist ,All USA Craigslist ,Search All Canada Craigslist,Search All India Craigslist,,Search All Japan Craigslist ,Search All Australia Craigslist" />
+<meta name="author" content="Search Deck Appspot" />
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Search All CraigsList</title>
 
     <link rel="stylesheet" type="text/css" href="/web/css/ext-all.css" />
+     <link rel="stylesheet" type="text/css" href="/web/css/datepickerplus.css" />
+      
       
      <script type="text/javascript" src="/web/js/ext-base.js"></script>
  	<script type="text/javascript" src="/web/js/ext-all.js"></script>
+ 	<script type="text/javascript" src="/web/js/ext.ux.datepickerplus.js"></script>
+ 	<script type="text/javascript" src="/web/js/ext.ux.datepickerplus-lang-en.js"></script>
+ 	
  	 <script type="text/javascript" src="/web/js/DealController.js"></script>
  	 <script type="text/javascript" src="/web/js/craigsListPanel.js"></script>
   	<script type="text/javascript" src="/web/js/EnterPanel.js"></script>
   	<script type="text/javascript" src="/web/js/addMapPanel.js"></script>
   	<script type="text/javascript" src="/web/js/GMapPanel.js"></script>
   	<script type="text/javascript" src="/web/js/GMapWindow.js"></script>
+  	<script type="text/javascript" src="/web/js/Bpgrid.js"></script>
  	 <script type="text/javascript" src="/web/js/DisplayPanel.js"></script>
  	<script type="text/javascript" src="/web/js/TabCloseMenu.js"></script> 
  	<script type="text/javascript" src="/web/js/flightsPanel.js"></script>
  	<script type="text/javascript" src="/web/js/craigsListPanel.js"></script>
  	<script type="text/javascript" src="/web/js/facebook.js"></script>
+ 	<script type="text/javascript" src="/web/js/ReachooWindow.js"></script>
  	
  	
  	

@@ -3,6 +3,7 @@ var lat =42.339419;
 var lng = -71.09077;
 
 var store ;
+var reachoostore;
 var text = "";
 var typeIn = "";
 var addOne = "";
@@ -13,7 +14,40 @@ var addFive = "";
 var hasPic = "";
 var byDate="";
 var grid = "";
-Ext.Ajax.timeout = 120000;
+var amazon;
+var amazonurl= '<iframe width="100%" height="100%" src="web/html/amazon.html?query='+text+'"></iframe>';
+Ext.Ajax.timeout = 240000;
+var connObjBP = new Ext.data.Connection({
+    timeout : 240000,
+    url : '../all-backpage',
+   // url : 'http://searchdeck.appspot.com/all-california-craigslist',
+    method : 'GET'
+});
+
+
+
+
+
+function renderTopic(value, p, record){
+    return String.format(
+            '<b><a href="{0}" target="_blank">{1}</a></b>',
+             record.data.link, record.data.title);
+}
+    function renderLast(value, p, r){
+        return String.format( r.data['location']);
+    }
+    
+    function renderDate(value, p, r){
+    	
+    	var date = new Date(r.data['date']);
+    	
+    	 var curr_date = date.getDate();
+    	  var curr_month = date.getMonth() + 1; //months are zero based
+    	  var curr_year = date.getFullYear();
+    	  return curr_date + "-" + curr_month + "-" + curr_year;
+
+       // return date.toString('yyyy-MM-dd'); ;
+    }
 
 GMapWindow = function() {
 	
@@ -38,20 +72,10 @@ GMapWindow = function() {
 
         // load using script tags for cross domain, if the data in on the same domain as
         // this page, an HttpProxy would be better
-        proxy: 
-        	new Ext.data.ScriptTagProxy(
-        	//new Ext.data.HttpProxy(
-        		{
-            //url: "http://searchdeck.appspot.com/all-california-craigslist",
-            url: "http://localhost:8888/all-california-craigslist",
-           // type:"ajax",
-           // method:"GET",
-          //  async:"true",
-            timeout:120000
-            	//,
-          //  conn :{ timeout: 120000 }
-        }),
-      //  proxy.conn = { timeout: 200000000 },
+        proxy:
+        	new Ext.data.HttpProxy(connObjBP), 
+        	//new Ext.data.ScriptTagProxy(connObjBP), 
+        	
         
         listeners: {
         	beforeload: function(store) {
@@ -64,58 +88,37 @@ GMapWindow = function() {
         		  store.baseParams.addFive = addFive ;
         		  store.baseParams.hasPic = hasPic ;
         		  store.baseParams.byDate = byDate ;
+        		  store.baseParams.region = region ;
         		  
+        		
+        		
         		},
      
      load:function(store,records,opts){                    
          //console.log(store.getRange());
     	 if (records[records.length-1])
     		 byDate = records[records.length-1].data.date;
-    	// byDate = encodeURIComponent(records[records.length-1].data.date);
-        // alert(encodeURIComponent(records[records.length-1].data.date));
-     },
+    	
+    	  amazon.update('<iframe width="100%" height="100%" src="web/html/amazon.html?query='+text+'"></iframe>');
+    	 
+     }
+        }}
+     );
+  
      
-     afterload: function(store) {
-		  
-		  alert("loaded");
-		},
-    
-
-
-        }
-    });
-   // store.setDefaultSort('city', 'date');
-//alert(store.getCount());
-
-function renderTopic(value, p, record){
-    return String.format(
-            '<b><a href="{0}" target="_blank">{1}</a></b>',
-             record.data.link, record.data.title);
-}
-    function renderLast(value, p, r){
-        return String.format( r.data['location']);
-    }
-    
-    function renderDate(value, p, r){
-    	
-    	var date = new Date(r.data['date']);
-    	
-    	 var curr_date = date.getDate();
-    	  var curr_month = date.getMonth() + 1; //months are zero based
-    	  var curr_year = date.getFullYear();
-    	  return curr_date + "-" + curr_month + "-" + curr_year;
-
-       // return date.toString('yyyy-MM-dd'); ;
-    }
+  
 
      grid = new Ext.grid.GridPanel({
-       layout:'fit',
-      // height:500,
+       layout:'vBox',
+     width:700,
+      // height:800,
         title:'CraigsList Search Results', 
+        region:'west',
         store: store,
         trackMouseOver:false,
         disableSelection:true,
         loadMask: true,
+        flex:1,
 //autoLoad:true,
         // grid columns
         columns:[
@@ -215,39 +218,46 @@ function renderTopic(value, p, record){
 	
 	
 	
-	
-	
-	
-	//////////////////////////////////////////////////////////
-	 var mapwin = new Ext.Panel({
-         layout: 'hbox',
-         title: 'GMap Window',
-         closeAction: 'hide',
-         //align:'right',
-        // region:'center',
-         collapsible:'true',
-         width:400,
-         height:400,
-       //  x: 100,
-      //   y: 60,
-         frame:true,
-         border:true,
-         margins:'5 5 5 100',
-        // padding:'10 10 10 10',
-         closable:true
-         //,
-      //   html:'<div id="get">Please Enable Browser for GeoLocation</div>'
-       //  ,
-     //    items: [grid]
-     });
     
 	
 	
 	
+	
+     amazon = new Ext.Panel({
+         // region:'h',
+         // el: 'header1',
+  	 
+        //  height:52
+         //,
+  	  title:'All Amazon Results',
+  	 layout:'fit'
+  		  ,
+  		//  region:'right',
+  		 // width:100,
+  		 // height:100,
+  	 //html: amazonurl,
+  		 flex:1
+//          html:
+//          	
+//          	
+//          	'<span style="color:blue;padding:5 5 5 5"><div></div><div class="fb-like" style="width:30%; text-align:center; float:right; clear:both;" data-href="http://searchdeck.appspot.com/" data-send="true" data-width="450" data-show-faces="false"></div>&nbsp;&nbsp;&nbsp;&nbsp;<img border="0" src="../web/image/a0l.gif"><i>&nbsp;&nbsp;&nbsp;Search All and Every CraigsList ; SearchDeck is not affiliated to CraigsList in any way.</i>'
+//          	+
+//          	'&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:searchdeck.appspot@gmail.com?Subject=Hello%20again">Send Mail</a>'
+//          	+
+//          	'</span>'
+      });
+	
 	GMapWindow.superclass.constructor.call(this, {
     id:'gMapWin',
-	title:'All CraigsList Search',
-	layout:'fit',
+	title:'All Backpage Search',
+	layout:'hBox',
+	//height:100,
+	layoutConfig: {
+	    align : 'stretch',
+	    pack  : 'start'
+	},
+
+	
 	//layout:'border',
 //	labelAlign: 'top',
 //	buttonAlign: 'center',
@@ -263,7 +273,14 @@ function renderTopic(value, p, record){
 //	margins:'5 5 5 5',
 	 bodyStyle: 'background-image: url("/web/image/flights.png");'
 		 ,
-	items:[grid]
+	items:[
+	       grid
+	       ,
+	       amazon
+	    //  ,
+	    // new Ext.BoxComponent({ // raw element
+	     
+	       ]
 //        
     });
 	

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script type='text/javascript'>
+function getQueryString() {
+	  var result = {}, queryString = location.search.substring(1),
+	      re = /([^&=]+)=([^&]*)/g, m;
+
+	  while (m = re.exec(queryString)) {
+	    result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+	  }
+
+	  return result;
+	}
+
+	// ...
+	var myParam = getQueryString()["query"];
+
+
+var amzn_wdgt={widget:'Search'};
+amzn_wdgt.tag='wwwgenieinjar-20';
+amzn_wdgt.columns='1';
+amzn_wdgt.rows='6';
+amzn_wdgt.defaultSearchTerm=myParam;
+amzn_wdgt.searchIndex='ALL';
+amzn_wdgt.width='500';
+amzn_wdgt.showImage='True';
+amzn_wdgt.showPrice='True';
+amzn_wdgt.showRating='True';
+amzn_wdgt.design='2';
+amzn_wdgt.colorTheme='Default';
+amzn_wdgt.headerTextColor='#FFFFFF';
+amzn_wdgt.outerBackgroundColor='#15428B';
+amzn_wdgt.marketPlace='US';
+</script>
+<script type='text/javascript' src='http://wms.assoc-amazon.com/20070822/US/js/AmazonWidgets.js'>
+</script>
+</head>
+<body>
+
+</body>
+</html>
