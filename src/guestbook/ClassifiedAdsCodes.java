@@ -42,36 +42,36 @@ public class ClassifiedAdsCodes  {
 		sectionMap.put("bar", "4");//barter
 		sectionMap.put("bia", "220");//bikes
 		sectionMap.put("boo", "327");
-		sectionMap.put("bka", "4");
-		sectionMap.put("bfa", "4");
-		sectionMap.put("sya", "4");
-		sectionMap.put("zip", "4");
-		sectionMap.put("fua", "4");
-		sectionMap.put("foa ","4");
-		sectionMap.put("jwa", "4");
-		sectionMap.put("maa", "4");
-		sectionMap.put("rva", "4");
-		sectionMap.put("sga", "4");
-		sectionMap.put("tia", "4");
-		sectionMap.put("wan", "4");
-		sectionMap.put("ara", "4");
-		sectionMap.put("pta", "4");
-		sectionMap.put("baa", "4");
-		sectionMap.put("haa", "4");
+		sectionMap.put("bka", "3");
+		sectionMap.put("bfa", "16");
+		sectionMap.put("sya", "9");
+		sectionMap.put("zip", "625");
+		sectionMap.put("fua", "13");
+		sectionMap.put("foa ","451");
+		sectionMap.put("jwa", "14");
+		sectionMap.put("maa", "451");
+		sectionMap.put("rva", "482");
+		sectionMap.put("sga", "19");
+		sectionMap.put("tia", "23");
+		sectionMap.put("wan", "86");
+		sectionMap.put("ara", "2");
+		sectionMap.put("pta", "627");
+		sectionMap.put("baa", "493");
+		sectionMap.put("haa", "11");
 		  
 		
-		sectionMap.put("ema", "4");
-		sectionMap.put("moa", "4");
-		sectionMap.put("cla", "4");
-		sectionMap.put("cba", "4");
-		sectionMap.put("ela", "4");
-		sectionMap.put("gra", "4");
+		sectionMap.put("ema", "1095");
+		sectionMap.put("moa", "9");
+		sectionMap.put("cla", "6");
+		sectionMap.put("cba", "1");
+		sectionMap.put("ela", "9");
+		sectionMap.put("gra", "10");
 		sectionMap.put("gms", "4");
-		sectionMap.put("hsa", "4");
+		sectionMap.put("hsa", "13");
 		sectionMap.put("mca", "470");
-		sectionMap.put("msa", "4");
-		sectionMap.put("taa", "4");
-		sectionMap.put("vga", "4");
+		sectionMap.put("msa", "189");
+		sectionMap.put("taa", "493");
+		sectionMap.put("vga", "9");
 		sectionMap.put("pha", "4");
 		
 		

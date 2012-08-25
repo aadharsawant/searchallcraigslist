@@ -105,7 +105,7 @@ craigsListPanel = function() {
 	    mode: 'remote',
 	   // triggerAction: 'all',
 	    hideTrigger:true,
-	    emptyText:'Search All USA CraigsList',
+	    emptyText:'Search All USA Classifieds',
 	    selectOnFocus:true,
 	    forceSelection:true,
 
@@ -511,12 +511,15 @@ servroot.expand(true);
                 			  Ext.MessageBox.alert('Error', 'Please select a section!');
                 			  return ;
                 			  }
-                		  Ext.getCmp('displayPanel').setActiveTab(Ext.getCmp('gMapWin'));
+                		  Ext.getCmp('displayPanel').setActiveTab(Ext.getCmp('reachooWin'));
+                		 // grid.getEl().mask('Loading...', 'x-mask-loading');
+                		  reachoostore.load({params:{start:0, limit:100 }});
                 	 store.load({params:{start:0, limit:100 }});
-                	 reachoostore.load({params:{start:0, limit:100 }});
+                	 amazon.update('<iframe width="100%" height="100%" src="web/html/amazon.html?query='+text+'"></iframe>');
+                	
                 	// backpagestore.load({params:{start:0, limit:100 }});
                  },
-                 descriptionText:'Submit CraigsLsit Search Details'
+                 descriptionText:'Submit  Search Details'
                  });
 	
 	
@@ -682,7 +685,7 @@ servroot.expand(true);
 	craigsListPanel.superclass.constructor.call(this, {
         id:'craigsListPanel',
      // layout:'form',
-	title:'CraigsList Search',
+	title:'Classifieds Search',
 	labelAlign: 'top',
 	buttonAlign: 'center',
 	align:'center',

@@ -19,6 +19,7 @@ var amazonurl= '<iframe width="100%" height="100%" src="web/html/amazon.html?que
 Ext.Ajax.timeout = 240000;
 var connObjBP = new Ext.data.Connection({
     timeout : 240000,
+   // url : '../all-california-craigslist',
     url : '../all-backpage',
    // url : 'http://searchdeck.appspot.com/all-california-craigslist',
     method : 'GET'
@@ -89,20 +90,22 @@ GMapWindow = function() {
         		  store.baseParams.hasPic = hasPic ;
         		  store.baseParams.byDate = byDate ;
         		  store.baseParams.region = region ;
-        		  
-        		
-        		
+        		 
+        		 // amazon.update('<iframe width="100%" height="100%" src="web/html/amazon.html?query='+text+'"></iframe>');
+        		 
         		},
      
      load:function(store,records,opts){                    
          //console.log(store.getRange());
+    	 grid.getEl().unmask();
     	 if (records[records.length-1])
     		 byDate = records[records.length-1].data.date;
     	
-    	  amazon.update('<iframe width="100%" height="100%" src="web/html/amazon.html?query='+text+'"></iframe>');
+    	 
     	 
      }
-        }}
+        }
+     }
      );
   
      
@@ -206,7 +209,15 @@ GMapWindow = function() {
                     view.refresh();
                 }
             }]
-        })
+        }),
+        listeners:{
+        	render : function(){
+        		grid.getEl().mask('Loading...', 'x-mask-loading');
+        	}
+        	},
+     handler:function(){
+    	 
+     }
     });
 
     // render it

@@ -16,6 +16,7 @@ DisplayPanel = function() {
         id:'displayPanel',
         activeTab:0,
         region:'center',
+        width: 500,
       //  margins:'0 5 5 0',
         resizeTabs:true,
         tabWidth:150,
@@ -23,7 +24,7 @@ DisplayPanel = function() {
         bodyStyle: 'background-image: url("/web/image/flights.png");',
        // enableTabScroll: true,
         plugins: new Ext.ux.TabCloseMenu(),
-        items: [craigListPanel,gMapWin,reachooWin
+        items: [craigListPanel,reachooWin,gMapWin
                 //,bpGrid
                 ]
 

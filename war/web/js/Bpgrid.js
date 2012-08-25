@@ -78,6 +78,7 @@ Bpgrid = function() {
         		  store.baseParams.hasPic = hasPic ;
         		  store.baseParams.byDate = byDate ;
         		  store.baseParams.region = region ;
+        		  bgrid.getEl().mask('Loading...', 'x-mask-loading');
         		  
         		},
      
